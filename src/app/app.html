@@ -1,0 +1,156 @@
+<a class="skip-link" href="#collection">Skip to collection</a>
+
+<header class="site-header" [class.menu-open]="menuOpen()">
+  <div class="header-inner">
+    <a class="wordmark" href="#top" (click)="closeMenu()" aria-label="Illusional Macrame home">
+      <span>Illusional</span>
+      <span class="wordmark-sub">Macrame <i aria-hidden="true">&</i> objects</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="primary-navigation"
+      aria-label="Toggle navigation menu"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="primary-navigation" class="primary-navigation" aria-label="Primary navigation">
+      <a href="#collection" (click)="closeMenu()">Collection</a>
+      <a href="#studio" (click)="closeMenu()">The studio</a>
+      <a href="#process" (click)="closeMenu()">Process</a>
+      <a class="nav-contact" [href]="instagramUrl" target="_blank" rel="noopener" (click)="closeMenu()">
+        <span>Say hello</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero section-pad" aria-labelledby="hero-heading">
+    <div class="hero-copy reveal reveal-one">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> Hand-tied in small batches</p>
+      <h1 id="hero-heading">Objects with<br /><em>a little soul.</em></h1>
+      <p class="hero-intro">Modern macrame for quiet corners, sunlit rooms, and the people who make a house feel like home.</p>
+      <a class="text-link" href="#collection">
+        <span>Explore the collection</span>
+        <span class="link-arrow" aria-hidden="true">↓</span>
+      </a>
+    </div>
+
+    <div class="hero-art reveal reveal-two">
+      <div class="hero-image-wrap">
+        <img
+          ngSrc="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=88"
+          width="900"
+          height="1120"
+          priority
+          alt="Layered natural textures and woven details in a warm living space"
+        />
+      </div>
+      <div class="hero-stamp" aria-hidden="true">
+        <svg viewBox="0 0 100 100" role="presentation">
+          <defs><path id="stamp-path" d="M 50,50 m -36,0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" /></defs>
+          <text><textPath href="#stamp-path">MADE SLOWLY · MADE TO LAST · </textPath></text>
+        </svg>
+        <span>✳</span>
+      </div>
+      <p class="image-caption">01 / The everyday collection</p>
+    </div>
+
+    <div class="hero-side-note" aria-hidden="true">Natural fibre / considered form / 2024—25</div>
+  </section>
+
+  <section id="collection" class="collection section-pad" aria-labelledby="collection-heading">
+    <div class="section-heading reveal">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-dot"></span> The collection</p>
+        <h2 id="collection-heading">A softer<br /><em>way to live.</em></h2>
+      </div>
+      <p class="section-lede">Pieces made for a slower kind of beautiful. Each one is knotted by hand, in our small studio, using natural cotton and a whole lot of care.</p>
+    </div>
+
+    <div class="gallery-grid">
+      @for (piece of pieces; track piece.name; let index = $index) {
+        <article class="gallery-piece" [class]="piece.size" [style.--delay]="index * 120 + 'ms'">
+          <a href="#hello" class="piece-image reveal" [attr.aria-label]="'Enquire about ' + piece.name">
+            <img [ngSrc]="piece.image" [width]="piece.size === 'wide' ? 1400 : 1000" [height]="piece.size === 'tall' ? 1300 : 1000" [alt]="piece.alt" />
+            <span class="piece-hover" aria-hidden="true">View piece <b>↗</b></span>
+          </a>
+          <div class="piece-meta">
+            <h3>{{ piece.name }}</h3>
+            <p>{{ piece.category }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section id="studio" class="studio section-pad" aria-labelledby="studio-heading">
+    <div class="studio-image reveal">
+      <img
+        ngSrc="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=85"
+        width="900"
+        height="1100"
+        alt="Warm, tactile living room with handcrafted decor"
+      />
+      <span class="vertical-label">The studio / Est. 2018</span>
+    </div>
+    <div class="studio-copy reveal">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> A note from the studio</p>
+      <h2 id="studio-heading">Made by hand,<br /><em>felt at home.</em></h2>
+      <p>There is something quietly radical about making things slowly. About choosing the knot over the shortcut, the natural fibre over the synthetic, the object that gets better with time.</p>
+      <p>Illusional Macrame is a one-woman studio creating tactile pieces for thoughtful spaces. No two are ever quite the same, and that is exactly the point.</p>
+      <a class="text-link" [href]="instagramUrl" target="_blank" rel="noopener">
+        <span>Meet the maker on Instagram</span>
+        <span class="link-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="process" class="process section-pad" aria-labelledby="process-heading">
+    <div class="process-intro">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> The illusional way</p>
+      <h2 id="process-heading">Small details.<br /><em>Big feeling.</em></h2>
+    </div>
+    <div class="process-list">
+      @for (note of studioNotes; track note.number) {
+        <article class="process-item">
+          <span class="process-number">{{ note.number }}</span>
+          <div>
+            <h3>{{ note.title }}</h3>
+            <p>{{ note.copy }}</p>
+          </div>
+          <span class="process-mark" aria-hidden="true">↗</span>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section id="hello" class="hello section-pad" aria-labelledby="hello-heading">
+    <div class="hello-inner reveal">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> Come say hello</p>
+      <h2 id="hello-heading">Your corner<br /><em>is waiting.</em></h2>
+      <p>For custom pieces, studio notes, and the occasional glimpse behind the knots, find us over on Instagram.</p>
+      <a class="button-link" [href]="instagramUrl" target="_blank" rel="noopener">
+        <span>@illusionalmacrame</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <div class="hello-pattern" aria-hidden="true"></div>
+  </section>
+</main>
+
+<footer class="site-footer section-pad">
+  <a class="wordmark" href="#top" aria-label="Back to top">
+    <span>Illusional</span>
+    <span class="wordmark-sub">Macrame <i aria-hidden="true">&</i> objects</span>
+  </a>
+  <p>Hand-tied with intention.</p>
+  <a class="footer-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+</footer>
