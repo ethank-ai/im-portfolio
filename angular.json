@@ -70,7 +70,12 @@
               "buildTarget": "im-portfolio:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+          "host": "0.0.0.0",
+          "port": 4200,
+          "allowedHosts": ["*"]
+          }
         },
         "test": {
           "builder": "@angular/build:unit-test"

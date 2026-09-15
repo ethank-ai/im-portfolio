@@ -15,6 +15,14 @@ type StudioNote = {
   copy: string;
 };
 
+type WorkshopOffering = {
+  name: string;
+  category: string;
+  image: string;
+  alt: string;
+  size: 'wide' | 'tall' | 'square';
+};
+
 @Component({
   selector: 'app-root',
   imports: [NgOptimizedImage],
@@ -64,6 +72,30 @@ export class App {
       number: '03',
       title: 'Made to linger',
       copy: 'Textural heirlooms for softening spaces, marking moments, and staying awhile.'
+    }
+  ];
+
+  protected readonly workshopOfferings: WorkshopOffering[] = [
+    {
+      name: 'Knotting circles',
+      category: 'Small-group workshops',
+      image: 'https://plus.unsplash.com/premium_photo-1714060723460-1f70a4da8480?q=80&w=1170&auto=format&fit=crop',
+      alt: 'A small group gathered around a table for a creative workshop',
+      size: 'wide'
+    },
+    {
+      name: 'Make your own',
+      category: 'Hands-on sessions',
+      image: 'https://plus.unsplash.com/premium_photo-1694289986113-874e1e48a1c1?q=80&w=687&auto=format&fit=crop',
+      alt: 'Hands working together on a creative project',
+      size: 'tall'
+    },
+    {
+      name: 'Shared skills',
+      category: 'Community partnerships',
+      image: 'https://images.unsplash.com/photo-1631945868106-7919f6a8a6d7?q=80&w=879&auto=format&fit=crop',
+      alt: 'People collaborating around a table in a community setting',
+      size: 'square'
     }
   ];
 
