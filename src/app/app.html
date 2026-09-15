@@ -19,7 +19,7 @@
     </button>
 
     <nav id="primary-navigation" class="primary-navigation" aria-label="Primary navigation">
-      <a href="#about" (click)="closeMenu()">About me</a>
+      <a href="#about-me" (click)="closeMenu()">About me</a>
       <a href="#interior-design" (click)="closeMenu()">Interior design</a>
       <a href="#events" (click)="closeMenu()">Events &amp; ideas</a>
       <a href="#workshops" (click)="closeMenu()">Workshops</a>
@@ -38,7 +38,8 @@
 </header>
 
 <main id="top">
-  <section class="hero section-pad" aria-labelledby="hero-heading">
+
+  <section id="about-me" class="hero section-pad" aria-labelledby="hero-heading">
     <div class="hero-copy reveal reveal-one">
       <p class="eyebrow"><span class="eyebrow-dot"></span> About the maker</p>
       <!-- <h1 id="hero-heading">Objects with<br /><em>a little soul.</em></h1> -->
@@ -122,7 +123,7 @@
     </div>
   </section>
 
-  <section id="studio" class="studio section-pad" aria-labelledby="studio-heading">
+  <section id="events" class="studio section-pad" aria-labelledby="studio-heading">
     <div class="studio-image reveal">
       <img
         ngSrc="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=85"
@@ -221,6 +222,7 @@
     </div>
     <div class="hello-pattern" aria-hidden="true"></div>
   </section>
+
 </main>
 
 <footer class="site-footer section-pad">
